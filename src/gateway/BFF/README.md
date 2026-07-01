@@ -10,24 +10,26 @@ Ports:
 - Example local Docker mapping: `-p 8080:8080`.
 - Health endpoint: `/health`.
 
-Configuration:
-- `PORT`: optional environment variable to override the listening port (default `8080`).
-- Downstream service hostnames currently hard-coded as `application-service`, `candidate-service`, and `job-service`.
-- Should propagate `Correlation ID` headers to downstream services when available.
+Features:
+- Correlation ID propagation for downstream requests
+- Bearer-token authentication when `AUTH_REQUIRED=true`
+- Kanban aggregation for application and candidate data
+- Proxy routing for job-service requests
+- Retry logic for transient downstream failures
 
-Runtime notes:
-- Implements `/aggregate/kanban/:candidateId` as an example aggregation endpoint.
-- Behaves as a gateway/edge layer, not a service database owner.
-- For production, add authentication, request validation, and improved error handling.
+Configuration:
+- `PORT`: override the listening port (default `8080`)
+- `AUTH_REQUIRED`: enable authentication checks (`true`/`false`)
+- `AUTH_TOKEN`: expected bearer token when auth is enabled
+- `APPLICATION_SERVICE_URL`, `CANDIDATE_SERVICE_URL`, `JOB_SERVICE_URL`: downstream service URLs
 
 Build and run:
 - Docker build: `docker build -t bff:local .`
-- Docker run example: `docker run -p 8080:8080 bff:local`
+- Docker run example: `docker run -p 8080:8080 -e AUTH_REQUIRED=true -e AUTH_TOKEN=development-token bff:local`
+
+Testing:
+- Run `npm test` from this folder to execute the gateway test suite.
 
 Dependencies:
 - `express`
 - `node-fetch`
-
-Notes:
-- The current implementation is a Node.js Express BFF, not a YARP gateway.
-- Keep domain-specific business rules inside the respective backend services.

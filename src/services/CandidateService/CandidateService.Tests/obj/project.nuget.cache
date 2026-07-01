@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hlslQR6XkxY=",
+  "dgSpecHash": "BtbtSw27EyM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\משתמש\\Documents\\לימודים יד\\וארכיטקטורה AI\\final\\JobConnect\\src\\services\\CandidateService\\CandidateService.Tests\\CandidateService.Tests.csproj",
+  "projectFilePath": "c:\\Users\\משתמש\\Documents\\לימודים יד\\וארכיטקטורה AI\\final\\JobConnect\\src\\services\\CandidateService\\CandidateService.Tests\\CandidateService.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\משתמש\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\משתמש\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.18\\microsoft.aspnetcore.openapi.8.0.18.nupkg.sha512",
